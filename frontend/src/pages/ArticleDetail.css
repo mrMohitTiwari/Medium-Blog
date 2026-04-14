@@ -1,0 +1,283 @@
+.article-detail {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.article-cover-full {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.article-cover-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-content-wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.article-detail-title {
+  font-size: 42px;
+  margin-bottom: 16px;
+  color: #222;
+  line-height: 1.2;
+}
+
+.article-detail-subtitle {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 32px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.article-author-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar-large {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #1a8917;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-avatar-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder-large {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.author-name-large {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.article-meta-info {
+  color: #757575;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.article-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.action-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.action-btn.active {
+  color: #1a8917;
+}
+
+.action-btn.delete {
+  color: #d32f2f;
+}
+
+.article-body {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.article-body p {
+  margin-bottom: 24px;
+}
+
+.article-body h2 {
+  margin: 32px 0 16px;
+}
+
+.article-body h3 {
+  margin: 28px 0 14px;
+}
+
+.article-tags-section {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.tag-large {
+  background-color: #f2f2f2;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.comments-section {
+  max-width: 740px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.comments-title {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.comment-form {
+  margin-bottom: 32px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: #1a8917;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comment {
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #1a8917;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder-small {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.comment-author-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.comment-date {
+  color: #999;
+  font-size: 14px;
+}
+
+.comment-content {
+  color: #444;
+  line-height: 1.5;
+  margin-left: 42px;
+}
+
+.no-comments {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .article-detail-title {
+    font-size: 32px;
+  }
+  
+  .article-detail-subtitle {
+    font-size: 20px;
+  }
+  
+  .article-cover-full {
+    height: 250px;
+  }
+  
+  .article-author-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .article-actions {
+    width: 100%;
+    justify-content: space-around;
+  }
+}

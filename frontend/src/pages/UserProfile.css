@@ -1,0 +1,54 @@
+.user-profile {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.follow-btn {
+  padding: 10px 24px;
+  background-color: #1a8917;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.follow-btn.following {
+  background-color: white;
+  color: #1a8917;
+  border: 1px solid #1a8917;
+}
+
+.follow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: white;
+  color: #1a8917;
+  border: 1px solid #1a8917;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.section-title {
+  font-size: 24px;
+  margin: 40px 0 20px;
+  color: #333;
+}
+
+/* Reuse styles from Profile.css */

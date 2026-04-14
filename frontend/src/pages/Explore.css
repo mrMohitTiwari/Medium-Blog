@@ -1,0 +1,120 @@
+.explore {
+  min-height: 100vh;
+  background-color: #fafafa;
+  padding: 40px 0;
+}
+
+.explore-tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+}
+
+.trending-stories {
+  max-width: 700px;
+}
+
+.trending-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.trending-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+.trending-rank {
+  font-size: 32px;
+  font-weight: bold;
+  color: #e0e0e0;
+  min-width: 50px;
+}
+
+.trending-content {
+  flex: 1;
+}
+
+.trending-author {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.trending-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.trending-meta {
+  color: #999;
+  font-size: 13px;
+}
+
+.suggested-writers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.writer-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.writer-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.writer-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #1a8917;
+  flex-shrink: 0;
+}
+
+.writer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.writer-info {
+  flex: 1;
+}
+
+.writer-name {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.writer-username {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.writer-bio {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.4;
+}

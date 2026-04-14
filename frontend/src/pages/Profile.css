@@ -1,0 +1,80 @@
+/* Global image styles */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smooth image loading */
+.image-loading {
+  filter: blur(10px);
+  transition: filter 0.3s ease;
+}
+
+.image-loaded {
+  filter: blur(0);
+}
+
+/* Avatar group styles */
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-group .avatar {
+  margin-right: -8px;
+  border: 2px solid white;
+  transition: transform 0.2s ease;
+}
+
+.avatar-group .avatar:hover {
+  transform: translateY(-2px);
+  z-index: 10;
+}
+
+/* Image hover effects */
+.hover-zoom {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.hover-zoom img {
+  transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Image placeholders */
+.image-placeholder {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Responsive images */
+@media (max-width: 768px) {
+  .article-cover-full {
+    height: 250px;
+  }
+  
+  .profile-avatar-large {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .avatar-placeholder-xlarge {
+    font-size: 48px;
+  }
+  
+  .cover-upload .dropzone {
+    min-height: 180px;
+  }
+  
+  .cover-upload .image-preview img {
+    height: 180px;
+  }
+}
