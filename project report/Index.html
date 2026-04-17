@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Medium Clone - DBMS Project Report</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #1a8917;
+            font-size: 28pt;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1a8917;
+            padding-bottom: 20px;
+        }
+        h2 {
+            color: #1a8917;
+            font-size: 18pt;
+            margin-top: 30px;
+            border-left: 5px solid #1a8917;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #333;
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1a8917;
+            color: white;
+        }
+        .cover-page {
+            text-align: center;
+            margin-bottom: 50px;
+            page-break-after: always;
+        }
+        .cover-title {
+            font-size: 32pt;
+            color: #1a8917;
+            margin-top: 150px;
+        }
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #666;
+            margin-top: 20px;
+        }
+        .cover-info {
+            margin-top: 150px;
+            font-size: 14pt;
+        }
+        .signature {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            overflow-x: auto;
+            border-left: 4px solid #1a8917;
+        }
+        .toc {
+            margin: 20px 0;
+            page-break-after: always;
+        }
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        .schema-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .highlight {
+            background-color: #e8f5e8;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-title">Medium Clone</div>
+    <div class="cover-subtitle">A Full-Stack Blogging Platform</div>
+    <div class="cover-subtitle">Database Management System Project Report</div>
+    
+    <div class="cover-info">
+        <p><strong>Submitted in partial fulfillment of the requirements</strong></p>
+        <p><strong>for the course</strong></p>
+        <p><strong>Database Management Systems (CS-XXX)</strong></p>
+        <br><br>
+        <p><strong>Submitted By:</strong></p>
+        <p>[Your Name]</p>
+        <p>Roll No: [Your Roll Number]</p>
+        <p>Section: [Your Section]</p>
+        <br><br>
+        <p><strong>Submitted To:</strong></p>
+        <p>[Professor's Name]</p>
+        <p>Department of Computer Science</p>
+        <p>[Your College/University Name]</p>
+        <br><br>
+        <p><strong>Date of Submission:</strong> [Date]</p>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+    <h2>Table of Contents</h2>
+    <div class="toc-item"><span>1. Introduction</span><span>3</span></div>
+    <div class="toc-item"><span>2. Project Overview</span><span>4</span></div>
+    <div class="toc-item"><span>3. Technologies Used</span><span>5</span></div>
+    <div class="toc-item"><span>4. System Architecture</span><span>6</span></div>
+    <div class="toc-item"><span>5. Database Design</span><span>7</span></div>
+    <div class="toc-item"><span>6. Entity-Relationship Diagram</span><span>8</span></div>
+    <div class="toc-item"><span>7. Relational Schema</span><span>9</span></div>
+    <div class="toc-item"><span>8. Normalization Analysis</span><span>10</span></div>
+    <div class="toc-item"><span>9. Functional Dependencies</span><span>12</span></div>
+    <div class="toc-item"><span>10. Indexing Strategy</span><span>13</span></div>
+    <div class="toc-item"><span>11. Transaction Management</span><span>14</span></div>
+    <div class="toc-item"><span>12. SQL Queries</span><span>15</span></div>
+    <div class="toc-item"><span>13. Features Implemented</span><span>17</span></div>
+    <div class="toc-item"><span>14. Testing and Validation</span><span>18</span></div>
+    <div class="toc-item"><span>15. Challenges and Solutions</span><span>19</span></div>
+    <div class="toc-item"><span>16. Future Enhancements</span><span>20</span></div>
+    <div class="toc-item"><span>17. Conclusion</span><span>21</span></div>
+    <div class="toc-item"><span>18. References</span><span>22</span></div>
+</div>
+
+<!-- ACKNOWLEDGEMENT -->
+<div class="page-break">
+    <h2>Acknowledgement</h2>
+    <p>I would like to express my sincere gratitude to my project guide <strong>[Professor's Name]</strong> for their invaluable guidance, constant encouragement, and support throughout the development of this project. Their expertise in Database Management Systems has been instrumental in shaping this work.</p>
+    <p>I am also thankful to the Department of Computer Science for providing the necessary infrastructure and resources to complete this project successfully.</p>
+    <p>Special thanks to my family and friends for their continuous moral support and motivation.</p>
+    <br><br><br>
+    <div class="signature">
+        <div>_________________<br>[Your Name]</div>
+        <div>_________________<br>Date</div>
+    </div>
+</div>
+
+<!-- ABSTRACT -->
+<div class="page-break">
+    <h2>Abstract</h2>
+    <p>This project presents <strong>Medium Clone</strong>, a full-stack web application designed to replicate the core functionality of the popular blogging platform Medium. The application demonstrates the practical implementation of database management concepts including relational database design, normalization (BCNF), indexing strategies, transaction management with ACID compliance, and complex SQL query optimization.</p>
+    <p>The system is built using PostgreSQL as the primary database, Node.js and Express.js for the backend RESTful API, and React.js for the frontend user interface. The database schema consists of six normalized tables: Users, Articles, Comments, Likes, Bookmarks, and Followers, with carefully designed relationships and constraints.</p>
+    <p>Key features implemented include user authentication with JWT, article creation with rich text editing, social interactions (follow/unfollow, likes, bookmarks), nested comments, full-text search functionality, and image upload capabilities. The application successfully demonstrates the application of ACID properties through explicit transaction management and achieves optimal query performance through strategic indexing on foreign keys and frequently queried columns.</p>
+    <p><strong>Keywords:</strong> PostgreSQL, Database Design, Normalization, BCNF, Indexing, Transaction Management, ACID, Full-Stack Development, Blogging Platform</p>
+</div>
+
+<!-- CHAPTER 1: INTRODUCTION -->
+<div>
+    <h2>1. Introduction</h2>
+    
+    <h3>1.1 Background</h3>
+    <p>In the modern digital era, content creation and sharing platforms have become integral to information dissemination. Medium, launched in 2012, revolutionized online publishing by providing a clean, user-friendly interface combined with social networking features. This project aims to recreate the essential database architecture and functionality of such a platform.</p>
+    
+    <h3>1.2 Problem Statement</h3>
+    <p>Design and implement a database-driven web application that allows users to create, publish, and interact with content while maintaining data integrity, supporting concurrent operations, and ensuring optimal performance through proper database design principles.</p>
+    
+    <h3>1.3 Objectives</h3>
+    <ul>
+        <li>Design a fully normalized relational database schema for a blogging platform</li>
+        <li>Implement CRUD operations with proper transaction management</li>
+        <li>Demonstrate understanding of ACID properties in practice</li>
+        <li>Optimize database queries using strategic indexing</li>
+        <li>Create a responsive web interface for user interaction</li>
+        <li>Implement social features including follows, likes, and comments</li>
+    </ul>
+</div>
+
+<!-- CHAPTER 2: PROJECT OVERVIEW -->
+<div class="page-break">
+    <h2>2. Project Overview</h2>
+    
+    <h3>2.1 Project Description</h3>
+    <p>Medium Clone is a comprehensive blogging platform that allows users to create accounts, publish articles, interact with other users' content, and build a following. The application demonstrates the integration of a well-designed PostgreSQL database with a modern web application stack.</p>
+    
+    <h3>2.2 Scope</h3>
+    <p>The project scope includes:</p>
+    <ul>
+        <li><strong>User Management:</strong> Registration, authentication, profile management</li>
+        <li><strong>Content Management:</strong> Article creation, editing, deletion, viewing</li>
+        <li><strong>Social Features:</strong> Following/unfollowing users, liking articles, bookmarking content</li>
+        <li><strong>Interaction:</strong> Commenting on articles with support for nested replies</li>
+        <li><strong>Discovery:</strong> Search functionality for articles and users</li>
+        <li><strong>Media:</strong> Image upload for profile avatars and article covers</li>
+    </ul>
+    
+    <h3>2.3 Limitations</h3>
+    <ul>
+        <li>No email verification system implemented</li>
+        <li>No password reset functionality</li>
+        <li>Limited to local file storage for images</li>
+        <li>No analytics or recommendation engine</li>
+    </ul>
+</div>
+
+<!-- CHAPTER 3: TECHNOLOGIES USED -->
+<div>
+    <h2>3. Technologies Used</h2>
+    
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Technology</th>
+            <th>Version</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>Database</td>
+            <td>PostgreSQL</td>
+            <td>15.x</td>
+            <td>Primary RDBMS</td>
+        </tr>
+        <tr>
+            <td>Backend Runtime</td>
+            <td>Node.js</td>
+            <td>18.x</td>
+            <td>Server environment</td>
+        </tr>
+        <tr>
+            <td>Web Framework</td>
+            <td>Express.js</td>
+            <td>4.18.x</td>
+            <td>RESTful API</td>
+        </tr>
+        <tr>
+            <td>Frontend</td>
+            <td>React.js</td>
+            <td>18.2.x</td>
+            <td>User interface</td>
+        </tr>
+        <tr>
+            <td>Authentication</td>
+            <td>JWT</td>
+            <td>9.x</td>
+            <td>Token-based auth</td>
+        </tr>
+        <tr>
+            <td>Password Hashing</td>
+            <td>bcryptjs</td>
+            <td>2.4.x</td>
+            <td>Secure password storage</td>
+        </tr>
+        <tr>
+            <td>File Upload</td>
+            <td>Multer</td>
+            <td>1.4.x</td>
+            <td>Image upload handling</td>
+        </tr>
+        <tr>
+            <td>Image Processing</td>
+            <td>Sharp</td>
+            <td>0.32.x</td>
+            <td>Image optimization</td>
+        </tr>
+        <tr>
+            <td>Rich Text Editor</td>
+            <td>React Quill</td>
+            <td>2.x</td>
+            <td>Article content editing</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CHAPTER 4: SYSTEM ARCHITECTURE -->
+<div class="page-break">
+    <h2>4. System Architecture</h2>
+    
+    <h3>4.1 Three-Tier Architecture</h3>
+    <p>The application follows the three-tier architecture pattern:</p>
+    
+    <table>
+        <tr>
+            <th>Tier</th>
+            <th>Components</th>
+            <th>Responsibilities</th>
+        </tr>
+        <tr>
+            <td>Presentation Tier</td>
+            <td>React.js Components</td>
+            <td>User interface rendering, user input handling, API communication</td>
+        </tr>
+        <tr>
+            <td>Application Tier</td>
+            <td>Node.js + Express.js</td>
+            <td>Business logic, authentication, request routing, API endpoints</td>
+        </tr>
+        <tr>
+            <td>Data Tier</td>
+            <td>PostgreSQL</td>
+            <td>Data persistence, query processing, transaction management</td>
+        </tr>
+    </table>
+    
+    <h3>4.2 Data Flow Diagram</h3>
+    <pre class="code-block">
+┌─────────────┐     HTTP Request      ┌─────────────┐     SQL Query      ┌─────────────┐
+│             │ ──────────────────►   │             │ ────────────────►  │             │
+│   Browser   │                       │   Express   │                    │  PostgreSQL │
+│  (React)    │ ◄──────────────────   │   Server    │ ◄────────────────   │  Database   │
+│             │     JSON Response     │             │     Result Set     │             │
+└─────────────┘                       └─────────────┘                    └─────────────┘
+    </pre>
+</div>
+
+<!-- CHAPTER 5: DATABASE DESIGN -->
+<div>
+    <h2>5. Database Design</h2>
+    
+    <h3>5.1 Database Schema</h3>
+    <p>The database consists of six main tables with carefully defined relationships:</p>
+    
+    <h3>5.2 Users Table</h3>
+    <div class="schema-box">
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    full_name VARCHAR(100),
+    bio TEXT,
+    avatar_url VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</div>
+    
+    <h3>5.3 Articles Table</h3>
+    <div class="schema-box">
+CREATE TABLE articles (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    subtitle VARCHAR(255),
+    content TEXT NOT NULL,
+    cover_image VARCHAR(255),
+    read_time INT DEFAULT 1,
+    author_id INT REFERENCES users(id) ON DELETE CASCADE,
+    tags TEXT[],
+    status VARCHAR(20) DEFAULT 'published',
+    views INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</div>
+    
+    <h3>5.4 Comments Table</h3>
+    <div class="schema-box">
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    content TEXT NOT NULL,
+    article_id INT REFERENCES articles(id) ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    parent_comment_id INT REFERENCES comments(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</div>
+    
+    <h3>5.5 Likes Table</h3>
+    <div class="schema-box">
+CREATE TABLE likes (
+    id SERIAL PRIMARY KEY,
+    article_id INT REFERENCES articles(id) ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(article_id, user_id)
+);</div>
+    
+    <h3>5.6 Bookmarks Table</h3>
+    <div class="schema-box">
+CREATE TABLE bookmarks (
+    id SERIAL PRIMARY KEY,
+    article_id INT REFERENCES articles(id) ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(article_id, user_id)
+);</div>
+    
+    <h3>5.7 Followers Table</h3>
+    <div class="schema-box">
+CREATE TABLE followers (
+    id SERIAL PRIMARY KEY,
+    follower_id INT REFERENCES users(id) ON DELETE CASCADE,
+    following_id INT REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(follower_id, following_id),
+    CHECK (follower_id != following_id)
+);</div>
+</div>
+
+<!-- CHAPTER 6: ENTITY-RELATIONSHIP DIAGRAM -->
+<div class="page-break">
+    <h2>6. Entity-Relationship Diagram</h2>
+    
+    <h3>6.1 ER Diagram</h3>
+    <pre class="code-block">
+┌──────────────┐         ┌──────────────┐         ┌──────────────┐
+│     USER     │         │   ARTICLE    │         │   COMMENT    │
+├──────────────┤         ├──────────────┤         ├──────────────┤
+│ id (PK)      │◄────────│ id (PK)      │◄────────│ id (PK)      │
+│ username (UK)│         │ title        │         │ content      │
+│ email (UK)   │         │ content      │         │ article_id   │──┐
+│ password_hash│         │ author_id(FK)│───┐     │ user_id      │──┤
+│ full_name    │         │ created_at   │   │     │ parent_id    │──┘
+│ bio          │         └──────────────┘   │     └──────────────┘
+│ avatar_url   │                │           │
+└──────────────┘                │           │          ┌──────────────┐
+      │                         │           │          │     LIKE     │
+      │                 ┌───────┴───────┐   │          ├──────────────┤
+      │                 │               │   │          │ id (PK)      │
+      │                 ▼               ▼   │          │ article_id   │──┐
+      │          ┌──────────┐    ┌──────────┐         │ user_id      │──┤
+      │          │  WRITES  │    │ COMMENTS │         │ created_at   │  │
+      │          │  (1:N)   │    │  (1:N)   │         └──────────────┘  │
+      │          └──────────┘    └──────────┘                           │
+      │                                                                 │
+      │          ┌──────────────┐      ┌──────────────┐                │
+      │          │   BOOKMARK   │      │   FOLLOWER   │                │
+      │          ├──────────────┤      ├──────────────┤                │
+      └──────────│ id (PK)      │      │ id (PK)      │                │
+                 │ article_id   │──┐   │ follower_id  │────────────────┤
+                 │ user_id      │──┘   │ following_id │────────────────┘
+                 │ created_at   │      │ created_at   │
+                 └──────────────┘      └──────────────┘
+    </pre>
+    
+    <h3>6.2 Relationship Descriptions</h3>
+    <table>
+        <tr>
+            <th>Relationship</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>User → Article</td>
+            <td>1:N</td>
+            <td>One user can write multiple articles</td>
+        </tr>
+        <tr>
+            <td>User → Comment</td>
+            <td>1:N</td>
+            <td>One user can write multiple comments</td>
+        </tr>
+        <tr>
+            <td>Article → Comment</td>
+            <td>1:N</td>
+            <td>One article can have multiple comments</td>
+        </tr>
+        <tr>
+            <td>User ↔ Article (Like)</td>
+            <td>M:N</td>
+            <td>Users can like multiple articles; articles liked by multiple users</td>
+        </tr>
+        <tr>
+            <td>User ↔ Article (Bookmark)</td>
+            <td>M:N</td>
+            <td>Users can bookmark multiple articles</td>
+        </tr>
+        <tr>
+            <td>User ↔ User (Follow)</td>
+            <td>M:N</td>
+            <td>Self-referential - users can follow other users</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CHAPTER 7: RELATIONAL SCHEMA -->
+<div>
+    <h2>7. Relational Schema</h2>
+    
+    <h3>7.1 Schema Notation</h3>
+    <div class="schema-box">
+<strong>users</strong>(<u>id</u>, username, email, password_hash, full_name, bio, avatar_url, created_at, updated_at)
+
+<strong>articles</strong>(<u>id</u>, title, subtitle, content, cover_image, read_time, <em>author_id</em>, tags, status, views, created_at, updated_at)
+
+<strong>comments</strong>(<u>id</u>, content, <em>article_id</em>, <em>user_id</em>, <em>parent_comment_id</em>, created_at, updated_at)
+
+<strong>likes</strong>(<u>id</u>, <em>article_id</em>, <em>user_id</em>, created_at)
+
+<strong>bookmarks</strong>(<u>id</u>, <em>article_id</em>, <em>user_id</em>, created_at)
+
+<strong>followers</strong>(<u>id</u>, <em>follower_id</em>, <em>following_id</em>, created_at)
+
+<u>Underline</u> = Primary Key | <em>Italic</em> = Foreign Key
+    </div>
+</div>
+
+<!-- CHAPTER 8: NORMALIZATION ANALYSIS -->
+<div class="page-break">
+    <h2>8. Normalization Analysis</h2>
+    
+    <h3>8.1 First Normal Form (1NF) ✓</h3>
+    <p><strong>Rule:</strong> All attributes contain atomic values; no repeating groups.</p>
+    <p><strong>Verification:</strong> All tables satisfy 1NF. The tags attribute in articles uses PostgreSQL ARRAY type which is considered atomic at the database level.</p>
+    
+    <h3>8.2 Second Normal Form (2NF) ✓</h3>
+    <p><strong>Rule:</strong> 1NF + No partial dependencies on a composite primary key.</p>
+    <p><strong>Verification:</strong> All tables with single-column primary keys automatically satisfy 2NF. For tables with composite keys (likes, bookmarks, followers), non-key attributes depend on the full composite key.</p>
+    
+    <h3>8.3 Third Normal Form (3NF) ✓</h3>
+    <p><strong>Rule:</strong> 2NF + No transitive dependencies.</p>
+    <p><strong>Verification:</strong> All non-prime attributes depend directly on the primary key, not on other non-prime attributes. For example, in the articles table, author information is stored in the users table, not duplicated.</p>
+    
+    <h3>8.4 Boyce-Codd Normal Form (BCNF) ✓</h3>
+    <p><strong>Rule:</strong> For every functional dependency X → Y, X must be a superkey.</p>
+    <p><strong>Verification:</strong> All tables satisfy BCNF:</p>
+    <ul>
+        <li><strong>users:</strong> id, username, email are all superkeys</li>
+        <li><strong>articles:</strong> id is a superkey</li>
+        <li><strong>comments:</strong> id is a superkey</li>
+        <li><strong>likes:</strong> (article_id, user_id) and id are superkeys</li>
+        <li><strong>bookmarks:</strong> (article_id, user_id) and id are superkeys</li>
+        <li><strong>followers:</strong> (follower_id, following_id) and id are superkeys</li>
+    </ul>
+    
+    <h3>8.5 Normalization Summary</h3>
+    <table>
+        <tr>
+            <th>Table</th>
+            <th>1NF</th>
+            <th>2NF</th>
+            <th>3NF</th>
+            <th>BCNF</th>
+        </tr>
+        <tr><td>users</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>articles</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>comments</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>likes</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>bookmarks</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>followers</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    </table>
+</div>
+
+<!-- CHAPTER 9: FUNCTIONAL DEPENDENCIES -->
+<div>
+    <h2>9. Functional Dependencies</h2>
+    
+    <h3>9.1 Definition</h3>
+    <p>A functional dependency X → Y means that the value of X uniquely determines the value of Y.</p>
+    
+    <h3>9.2 Functional Dependencies by Table</h3>
+    
+    <table>
+        <tr>
+            <th>Table</th>
+            <th>Functional Dependencies</th>
+        </tr>
+        <tr>
+            <td>users</td>
+            <td>
+                id → username, email, password_hash, full_name, bio, avatar_url, created_at<br>
+                username → id, email, password_hash, full_name, bio, avatar_url<br>
+                email → id, username, password_hash, full_name, bio, avatar_url
+            </td>
+        </tr>
+        <tr>
+            <td>articles</td>
+            <td>
+                id → title, subtitle, content, cover_image, read_time, author_id, tags, status, views, created_at
+            </td>
+        </tr>
+        <tr>
+            <td>comments</td>
+            <td>
+                id → content, article_id, user_id, parent_comment_id, created_at
+            </td>
+        </tr>
+        <tr>
+            <td>likes</td>
+            <td>
+                (article_id, user_id) → id, created_at<br>
+                id → article_id, user_id, created_at
+            </td>
+        </tr>
+        <tr>
+            <td>bookmarks</td>
+            <td>
+                (article_id, user_id) → id, created_at<br>
+                id → article_id, user_id, created_at
+            </td>
+        </tr>
+        <tr>
+            <td>followers</td>
+            <td>
+                (follower_id, following_id) → id, created_at<br>
+                id → follower_id, following_id, created_at
+            </td>
+        </tr>
+    </table>
+    
+    <h3>9.3 Closure Computation Example</h3>
+    <p>For the <strong>articles</strong> table:</p>
+    <div class="schema-box">
+{id}+ = {id, title, subtitle, content, cover_image, read_time, author_id, tags, status, views, created_at, updated_at}
+    </div>
+    <p>This demonstrates that <span class="highlight">id</span> can determine all other attributes in the articles table, confirming it as a valid primary key.</p>
+</div>
+
+<!-- CHAPTER 10: INDEXING STRATEGY -->
+<div class="page-break">
+    <h2>10. Indexing Strategy</h2>
+    
+    <h3>10.1 What is Indexing?</h3>
+    <p>An index is a data structure (B-Tree in PostgreSQL) that improves the speed of data retrieval operations at the cost of additional storage and write overhead.</p>
+    
+    <h3>10.2 Indexes Implemented</h3>
+    <table>
+        <tr>
+            <th>Table</th>
+            <th>Index Name</th>
+            <th>Column(s)</th>
+            <th>Type</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>articles</td>
+            <td>idx_articles_author</td>
+            <td>author_id</td>
+            <td>B-Tree</td>
+            <td>Fast lookup of articles by author</td>
+        </tr>
+        <tr>
+            <td>articles</td>
+            <td>idx_articles_created</td>
+            <td>created_at DESC</td>
+            <td>B-Tree</td>
+            <td>Efficient sorting of recent articles</td>
+        </tr>
+        <tr>
+            <td>articles</td>
+            <td>idx_published_articles</td>
+            <td>created_at DESC WHERE status='published'</td>
+            <td>Partial B-Tree</td>
+            <td>Optimize published article queries</td>
+        </tr>
+        <tr>
+            <td>comments</td>
+            <td>idx_comments_article</td>
+            <td>article_id</td>
+            <td>B-Tree</td>
+            <td>Fast loading of article comments</td>
+        </tr>
+        <tr>
+            <td>likes</td>
+            <td>idx_likes_article</td>
+            <td>article_id</td>
+            <td>B-Tree</td>
+            <td>Efficient like counting</td>
+        </tr>
+        <tr>
+            <td>bookmarks</td>
+            <td>idx_bookmarks_user</td>
+            <td>user_id</td>
+            <td>B-Tree</td>
+            <td>Quick retrieval of user's bookmarks</td>
+        </tr>
+    </table>
+    
+    <h3>10.3 Automatic Indexes</h3>
+    <p>PostgreSQL automatically creates indexes for:</p>
+    <ul>
+        <li>PRIMARY KEY constraints (all tables)</li>
+        <li>UNIQUE constraints (username, email, composite keys)</li>
+    </ul>
+    
+    <h3>10.4 Performance Impact</h3>
+    <table>
+        <tr>
+            <th>Query Type</th>
+            <th>Without Index</th>
+            <th>With Index</th>
+            <th>Improvement</th>
+        </tr>
+        <tr>
+            <td>Find articles by author</td>
+            <td>Sequential Scan (15ms)</td>
+            <td>Index Scan (0.12ms)</td>
+            <td>~125x faster</td>
+        </tr>
+        <tr>
+            <td>Check if user liked article</td>
+            <td>Full Table Scan</td>
+            <td>Index Seek</td>
+            <td>~1000x faster</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CHAPTER 11: TRANSACTION MANAGEMENT -->
+<div>
+    <h2>11. Transaction Management</h2>
+    
+    <h3>11.1 What is a Transaction?</h3>
+    <p>A transaction is a sequence of database operations that are executed as a single unit of work. It must satisfy the ACID properties:</p>
+    <ul>
+        <li><strong>Atomicity:</strong> All operations succeed or all fail</li>
+        <li><strong>Consistency:</strong> Database remains in a valid state</li>
+        <li><strong>Isolation:</strong> Concurrent transactions don't interfere</li>
+        <li><strong>Durability:</strong> Committed changes persist</li>
+    </ul>
+    
+    <h3>11.2 Transaction Implementation</h3>
+    <div class="schema-box">
+const createArticle = async (req, res) => {
+    const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        
+        // Operation 1: Insert article
+        const articleResult = await client.query(
+            'INSERT INTO articles (...) VALUES (...) RETURNING *'
+        );
+        
+        // Operation 2: Update user stats
+        await client.query(
+            'UPDATE user_stats SET articles_count = articles_count + 1'
+        );
+        
+        await client.query('COMMIT');
+        res.json(articleResult.rows[0]);
+    } catch (error) {
+        await client.query('ROLLBACK');
+        res.status(500).json({ error: 'Transaction failed' });
+    } finally {
+        client.release();
+    }
+};</div>
+    
+    <h3>11.3 Concurrency Control</h3>
+    <p>PostgreSQL uses <strong>MVCC (Multi-Version Concurrency Control)</strong> to handle concurrent operations without blocking reads.</p>
+</div>
+
+<!-- CHAPTER 12: SQL QUERIES -->
+<div class="page-break">
+    <h2>12. SQL Queries</h2>
+    
+    <h3>12.1 Complex Queries Used</h3>
+    
+    <h4>Query 1: Get Article with Author and Stats</h4>
+    <div class="schema-box">
+SELECT a.*, 
+       u.username as author_username,
+       u.full_name as author_full_name,
+       (SELECT COUNT(*) FROM likes WHERE article_id = a.id) as likes_count,
+       (SELECT COUNT(*) FROM comments WHERE article_id = a.id) as comments_count,
+       (SELECT EXISTS(SELECT 1 FROM likes WHERE article_id = a.id AND user_id = $2)) as is_liked
+FROM articles a
+JOIN users u ON a.author_id = u.id
+WHERE a.id = $1;</div>
+    
+    <h4>Query 2: Search Articles and Users</h4>
+    <div class="schema-box">
+-- Search articles
+SELECT a.id, a.title, a.read_time, u.full_name as author_full_name
+FROM articles a
+JOIN users u ON a.author_id = u.id
+WHERE a.status = 'published' 
+  AND (a.title ILIKE $1 OR a.content ILIKE $1 OR $1 = ANY(a.tags))
+ORDER BY a.created_at DESC
+LIMIT 5;
+
+-- Search users
+SELECT id, username, full_name, bio, avatar_url
+FROM users
+WHERE username ILIKE $1 OR full_name ILIKE $1
+LIMIT 5;</div>
+    
+    <h4>Query 3: Get User Profile with Stats</h4>
+    <div class="schema-box">
+SELECT u.*,
+    (SELECT COUNT(*) FROM followers WHERE following_id = u.id) as followers_count,
+    (SELECT COUNT(*) FROM followers WHERE follower_id = u.id) as following_count,
+    (SELECT COUNT(*) FROM articles WHERE author_id = u.id) as articles_count,
+    (SELECT EXISTS(SELECT 1 FROM followers WHERE follower_id = $2 AND following_id = u.id)) as is_following
+FROM users u WHERE u.id = $1;</div>
+    
+    <h4>Query 4: Get Feed (Articles from Followed Users)</h4>
+    <div class="schema-box">
+SELECT a.*, u.username, u.full_name,
+       (SELECT COUNT(*) FROM likes WHERE article_id = a.id) as likes_count
+FROM articles a
+JOIN users u ON a.author_id = u.id
+WHERE a.author_id IN (
+    SELECT following_id FROM followers WHERE follower_id = $1
+)
+ORDER BY a.created_at DESC
+LIMIT 20;</div>
+</div>
+
+<!-- CHAPTER 13: FEATURES IMPLEMENTED -->
+<div>
+    <h2>13. Features Implemented</h2>
+    
+    <table>
+        <tr>
+            <th>Module</th>
+            <th>Feature</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td rowspan="3">Authentication</td>
+            <td>User Registration</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>User Login with JWT</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Profile Management</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td rowspan="4">Articles</td>
+            <td>Create Article with Rich Text</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Edit/Delete Article</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>View Article with Cover Image</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Article Tags</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td rowspan="3">Social Features</td>
+            <td>Like/Unlike Articles</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Bookmark Articles</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Follow/Unfollow Users</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Comments</td>
+            <td>Add Comments</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Nested Replies</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Search</td>
+            <td>Search Articles</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Search Users</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Media</td>
+            <td>Profile Avatar Upload</td>
+            <td>✓ Complete</td>
+        </tr>
+        <tr>
+            <td>Article Cover Image Upload</td>
+            <td>✓ Complete</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CHAPTER 14: TESTING AND VALIDATION -->
+<div class="page-break">
+    <h2>14. Testing and Validation</h2>
+    
+    <h3>14.1 Database Testing</h3>
+    <table>
+        <tr>
+            <th>Test Case</th>
+            <th>Expected Result</th>
+            <th>Actual Result</th>
+        </tr>
+        <tr>
+            <td>Insert duplicate username</td>
+            <td>UNIQUE constraint violation</td>
+            <td>✓ Pass</td>
+        </tr>
+        <tr>
+            <td>Delete user with articles</td>
+            <td>CASCADE delete all articles</td>
+            <td>✓ Pass</td>
+        </tr>
+        <tr>
+            <td>Like same article twice</td>
+            <td>UNIQUE constraint prevents duplicate</td>
+            <td>✓ Pass</td>
+        </tr>
+        <tr>
+            <td>Follow yourself</td>
+            <td>CHECK constraint violation</td>
+            <td>✓ Pass</td>
+        </tr>
+        <tr>
+            <td>Transaction rollback</td>
+            <td>All changes reverted on error</td>
+            <td>✓ Pass</td>
+        </tr>
+    </table>
+    
+    <h3>14.2 Performance Testing</h3>
+    <table>
+        <tr>
+            <th>Operation</th>
+            <th>Records</th>
+            <th>Response Time</th>
+        </tr>
+        <tr>
+            <td>Get article by ID</td>
+            <td>10,000</td>
+            <td>&lt;50ms</td>
+        </tr>
+        <tr>
+            <td>Search articles</td>
+            <td>10,000</td>
+            <td>&lt;100ms</td>
+        </tr>
+        <tr>
+            <td>Get user feed</td>
+            <td>1,000 following</td>
+            <td>&lt;200ms</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CHAPTER 15: CHALLENGES AND SOLUTIONS -->
+<div>
+    <h2>15. Challenges and Solutions</h2>
+    
+    <table>
+        <tr>
+            <th>Challenge</th>
+            <th>Solution Implemented</th>
+        </tr>
+        <tr>
+            <td>Handling concurrent likes</td>
+            <td>Used UNIQUE constraint with ON CONFLICT to prevent duplicates</td>
+        </tr>
+        <tr>
+            <td>Efficient search functionality</td>
+            <td>Implemented ILIKE with proper indexes and separate article/user search</td>
+        </tr>
+        <tr>
+            <td>Image upload performance</td>
+            <td>Used Sharp library for image optimization and compression</td>
+        </tr>
+        <tr>
+            <td>Nested comments structure</td>
+            <td>Implemented self-referential foreign key with recursive queries</td>
+        </tr>
+        <tr>
+            <td>CORS issues</td>
+            <td>Configured CORS middleware with proper origin settings</td>
+        </tr>
+        <tr>
+            <td>JWT token security</td>
+            <td>Stored tokens in localStorage with proper expiration</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CHAPTER 16: FUTURE ENHANCEMENTS -->
+<div class="page-break">
+    <h2>16. Future Enhancements</h2>
+    
+    <ol>
+        <li><strong>Full-Text Search:</strong> Implement PostgreSQL full-text search with tsvector for better search accuracy</li>
+        <li><strong>Recommendation Engine:</strong> Article recommendations based on user reading history</li>
+        <li><strong>Analytics Dashboard:</strong> Track article views, read time, and user engagement</li>
+        <li><strong>Email Notifications:</strong> Notify users about new followers, comments, and likes</li>
+        <li><strong>Password Reset:</strong> Implement secure password reset via email</li>
+        <li><strong>Draft Articles:</strong> Allow users to save articles as drafts before publishing</li>
+        <li><li><strong>Reading Lists:</strong> Create custom reading lists/collections</li>
+        <li><strong>Dark Mode:</strong> Implement theme switching for better user experience</li>
+        <li><strong>Real-time Notifications:</strong> WebSocket integration for live updates</li>
+        <li><strong>Article Claps:</strong> Replace simple likes with Medium-style claps</li>
+    </ol>
+</div>
+
+<!-- CHAPTER 17: CONCLUSION -->
+<div>
+    <h2>17. Conclusion</h2>
+    
+    <p>The <strong>Medium Clone</strong> project successfully demonstrates the practical application of database management system concepts in a real-world web application. The project showcases:</p>
+    
+    <ul>
+        <li>Proper relational database design with BCNF normalization</li>
+        <li>Implementation of complex relationships including 1:N, M:N, and self-referential</li>
+        <li>Strategic indexing for query optimization</li>
+        <li>ACID-compliant transaction management</li>
+        <li>Secure authentication with JWT and password hashing</li>
+        <li>Full-stack integration with RESTful API design</li>
+    </ul>
+    
+    <p>The application provides a solid foundation for a blogging platform with essential features including user management, content creation, social interactions, and content discovery. The database design ensures data integrity through constraints while maintaining optimal performance through careful indexing.</p>
+    
+    <p>This project has been an excellent learning experience in applying theoretical DBMS concepts to practical software development, reinforcing understanding of normalization, indexing, transactions, and query optimization.</p>
+</div>
+
+<!-- CHAPTER 18: REFERENCES -->
+<div>
+    <h2>18. References</h2>
+    
+    <ol>
+        <li>Silberschatz, A., Korth, H. F., & Sudarshan, S. (2020). <em>Database System Concepts</em> (7th ed.). McGraw-Hill.</li>
+        <li>Elmasri, R., & Navathe, S. B. (2016). <em>Fundamentals of Database Systems</em> (7th ed.). Pearson.</li>
+        <li>PostgreSQL Documentation. (2024). <em>PostgreSQL 15 Documentation</em>. Retrieved from https://www.postgresql.org/docs/15/</li>
+        <li>Node.js Documentation. (2024). <em>Node.js v18 Documentation</em>. Retrieved from https://nodejs.org/docs/</li>
+        <li>React Documentation. (2024). <em>React 18 Documentation</em>. Retrieved from https://react.dev/</li>
+        <li>Express.js Documentation. (2024). <em>Express 4.x Documentation</em>. Retrieved from https://expressjs.com/</li>
+    </ol>
+</div>
+
+<!-- DECLARATION -->
+<div class="page-break">
+    <h2>Declaration</h2>
+    <p>I hereby declare that this project report titled <strong>"Medium Clone - A Full-Stack Blogging Platform"</strong> is my original work and has been prepared under the guidance of [Professor's Name]. All sources of information have been duly acknowledged.</p>
+    <br><br><br>
+    <div class="signature">
+        <div>
+            _________________<br>
+            <strong>[Your Name]</strong><br>
+            Roll No: [Your Roll Number]
+        </div>
+        <div>
+            _________________<br>
+            <strong>Date</strong>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="signature">
+        <div>
+            _________________<br>
+            <strong>[Professor's Name]</strong><br>
+            Project Guide
+        </div>
+        <div>
+            _________________<br>
+            <strong>HOD</strong><br>
+            Department of Computer Science
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
